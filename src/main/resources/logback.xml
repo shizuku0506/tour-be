@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- 스프링 boot 프로퍼티 -->
+	<property resource="application.properties" />
+	
+	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${custom.logbak.fileNamePattern}</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>${custom.logbak.maxSize}</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${custom.logbak.logFilePattern}</pattern>
+		</encoder>
+	</appender>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>${custom.logbak.logStdoutPattern}</Pattern>
+		</layout>
+	</appender>
+
+	<!-- Loggers -->
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+	<logger name="com.tour">
+		<level value="debug" />
+	</logger>
+	<logger name="java.sql">
+		<level value="debug" />
+	</logger>
+	<logger name="org.hibernate.SQL">
+		<level value="debug" />
+	</logger>
+	<logger name="org.hibernate.type.descriptor.sql.BasicBinder">
+		<level value="trace" />
+	</logger>
+	<root level="info">
+		<appender-ref ref="ROLLING"/> 
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
