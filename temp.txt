@@ -1,0 +1,19 @@
+http://localhost:8082/region
+
+{
+"regionType" : "AREA",
+"lat" : 38.3,
+"lng" : 18.3,
+"regionTrans" : [
+	{
+	"langType" : "KR",
+	"title" : "test1",
+	"content" : "test11111"
+	},
+	{
+	"langType" : "EN",
+	"title" : "test2",
+	"content" : "test22"
+	}
+]
+}

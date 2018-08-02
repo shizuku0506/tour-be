@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 @Entity
@@ -15,14 +16,26 @@ import java.util.Collection;
 public class Region
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "REGION_NO")
 	private long regionNo;
 
 	@Column(name = "REGION_TP")
+	@NotNull
 	private String regionType;
 
-	@OneToMany
-	@JoinColumn(name = "REGION_NO")
+	@Column(name = "LAT")
+	@NotNull
+	private long lat;
+
+	@Column(name = "LNG")
+	@NotNull
+	private long lng;
+
+	@OneToMany(mappedBy = "region",
+					cascade = CascadeType.ALL,
+					targetEntity = RegionTrans.class
+					//					fetch = FetchType.EAGER
+	)
 	private Collection<RegionTrans> regionTrans;
 }

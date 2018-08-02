@@ -1,6 +1,6 @@
-# README #
+### Tour Back End
 
-* 개발
-  * spring4 boot + jpa
+1. Stack
 
-  * Start 2017.12
+    - JDK 1.8
+    - Spring Boot 2.X 
