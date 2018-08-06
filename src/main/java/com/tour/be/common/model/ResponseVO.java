@@ -1,4 +1,4 @@
-package com.tour.be.model;
+package com.tour.be.common.model;
 
 import lombok.Data;
 import lombok.Getter;
