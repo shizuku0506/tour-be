@@ -13,10 +13,15 @@ import java.util.Collection;
 @Data
 @Getter
 @Setter
+@SequenceGenerator(
+				name = "SEQ_REGION_GENERATOR",
+				sequenceName = "SEQ_REGION", //매핑할데이터베이스 시퀀스 이름
+				initialValue = 1, allocationSize = 1)
 public class Region
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "SEQ_REGION_GENERATOR")
+//		@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "REGION_NO")
 	private long regionNo;
 
@@ -32,7 +37,8 @@ public class Region
 	@NotNull
 	private long lng;
 
-	@OneToMany(mappedBy = "region",
+	@OneToMany(
+					mappedBy = "region",
 					cascade = CascadeType.ALL,
 					targetEntity = RegionTrans.class
 					//					fetch = FetchType.EAGER

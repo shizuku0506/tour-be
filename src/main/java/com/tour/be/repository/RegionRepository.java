@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface RegionRepository extends CrudRepository<Region, Long>
 {
-	//	public List<Region> findAll();
 }

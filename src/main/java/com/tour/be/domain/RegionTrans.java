@@ -12,23 +12,24 @@ import java.util.Date;
 @Data
 @Getter
 @Setter
-@IdClass(RegionTransCompositeKey.class)
+//@IdClass(RegionTransCompositeKey.class)
 public class RegionTrans
 {
-//	@Id
+	@Id
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-//	@Column(name = "TRANS_NO")
-//	private long transNo;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "TRANS_NO")
+	private long transNo;
 
 	@ManyToOne(fetch = FetchType.LAZY,
 					cascade = CascadeType.ALL,
 					targetEntity = Region.class)
 	@JoinColumn(name = "REGION_NO")
-	@Id
+//	@Id
 	private Region region;
 
 	@Column(name = "LANG_TP")
-	@Id
+//	@Id
 	private String langType;
 
 	@Column(name = "TITLE")
