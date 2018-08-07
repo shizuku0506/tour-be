@@ -8,15 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class Region extends CommonVo implements Serializable
+public class RegionParam implements Serializable
 {
-	private long regionId;
+	private long seq;
 
-	private String regionTp;
+	private String langTp;
 
 	private long lat;
 
 	private long lng;
-
-	private List<RegionTrans> RegionTransList = new ArrayList<>();
 }

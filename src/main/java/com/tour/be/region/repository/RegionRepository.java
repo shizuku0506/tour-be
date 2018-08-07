@@ -10,6 +10,7 @@ import java.util.List;
 @Mapper
 public interface RegionRepository
 {
-	@Select("select * from student")
+	@Select("select * from tb_region")
 	public List<Region> findAll();
+
 }

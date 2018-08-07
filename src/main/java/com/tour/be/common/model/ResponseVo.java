@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 @Data
 @Getter
 @Setter
-public class ResponseVO
+public class ResponseVo
 {
 	private HttpStatus resultCode;
 
